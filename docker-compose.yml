@@ -1,0 +1,30 @@
+services:
+  cpu:
+    image: ${DOCKERHUB_USERNAME}/poi-cpu-grupo25:1.0
+    build:
+      context: ./apps
+      dockerfile: Dockerfile.cpu
+    container_name: poi-cpu-grupo25
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+
+  memory:
+    image: ${DOCKERHUB_USERNAME}/poi-memory-grupo25:1.0
+    build:
+      context: ./apps
+      dockerfile: Dockerfile.memory
+    container_name: poi-memory-grupo25
+    restart: unless-stopped
+    ports:
+      - "8002:8002"
+
+  io:
+    image: ${DOCKERHUB_USERNAME}/poi-io-grupo25:1.0
+    build:
+      context: ./apps
+      dockerfile: Dockerfile.io
+    container_name: poi-io-grupo25
+    restart: unless-stopped
+    ports:
+      - "8003:8003"
